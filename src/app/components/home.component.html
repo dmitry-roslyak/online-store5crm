@@ -1,0 +1,21 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center start" fxLayoutGap="1rem grid">
+  <div fxFlex="20" *ngFor="let product of products">
+    <mat-card>
+      <mat-card-content>
+        <h4>Price: {{product.price}}</h4>
+        <h4>Weight: {{product.weight}}</h4>
+        <p>
+          {{ product.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button *ngIf="!product.isInCart" mat-raised-button color="primary" (click)="addToCart(product)">
+          Add to cart
+        </button>
+        <button *ngIf="product.isInCart" mat-raised-button color="primary" (click)="addToCart(product)">
+          Remove from cart
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
